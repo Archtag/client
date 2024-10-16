@@ -7,21 +7,24 @@ import { routes } from './app.routes';
 import { HeaderComponent } from './structure/header.component';
 import { FooterComponent } from './structure/footer.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
-
-
+import { SharedModule } from './shared/shared.module';
+import { AuthStateService } from './shared/state/auth.state.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    RouteNotFoundComponent
+    RouteNotFoundComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
+    SharedModule,
+    RouterModule.forRoot(routes),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private authStateService: AuthStateService) {}
+}

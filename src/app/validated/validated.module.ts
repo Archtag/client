@@ -12,4 +12,4 @@ import { CompaniesComponent } from './companies/companies.component';
     ValidatedRoutingModule
   ]
 })
-export class AuthModule { }
+export class ValidatedModule { }
