@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HeaderComponent } from './structure/header.component';
 import { FooterComponent } from './structure/footer.component';
+import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 
 
 
@@ -13,7 +14,8 @@ import { FooterComponent } from './structure/footer.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RouteNotFoundComponent
   ],
   imports: [
     CommonModule,
