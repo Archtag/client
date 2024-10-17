@@ -2,3 +2,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.visible-screen-flexbox {
+  @apply flexbox-with-centered-elements mt-header-height min-h-screen-without-header w-full;
+}
+
+.flexbox-with-centered-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
