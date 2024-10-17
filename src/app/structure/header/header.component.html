@@ -1,0 +1,5 @@
+@if (!authStateService.isAuthenticated()) {
+<app-not-authenticated-header></app-not-authenticated-header>
+} @else {
+    <app-authenticated-header></app-authenticated-header>
+}

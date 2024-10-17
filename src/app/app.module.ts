@@ -4,21 +4,17 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { HeaderComponent } from './structure/header.component';
+import { HeaderComponent } from './structure/header/header.component';
 import { FooterComponent } from './structure/footer.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 import { SharedModule } from './shared/shared.module';
-import { AuthStateService } from './shared/state/auth.state.service';
+import { HeaderModule } from './structure/header/header.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    RouteNotFoundComponent,
-  ],
+  declarations: [AppComponent, FooterComponent, RouteNotFoundComponent],
   imports: [
     CommonModule,
+    HeaderModule,
     BrowserModule,
     SharedModule,
     RouterModule.forRoot(routes),
@@ -26,5 +22,5 @@ import { AuthStateService } from './shared/state/auth.state.service';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private authStateService: AuthStateService) {}
+  constructor() {}
 }
