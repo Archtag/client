@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthStateService } from '../shared/state/auth.state.service';
+import { AuthStateService } from '../state/auth.state.service';
 
 export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
@@ -10,7 +10,7 @@ export const AuthGuard: CanActivateFn = (route, state) => {
 
   if (!isAuthenticated) {
     const hadBeenSignedIn = localStorage.getItem('had_been_signed_in');
-    router.navigate(hadBeenSignedIn ? ['/auth/login'] : ['/auth/sign-up']);
+    router.navigate(hadBeenSignedIn ? ['/auth/login'] : ['/auth/register']);
     return false;
   }
 

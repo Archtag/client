@@ -1,8 +1,9 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { IAuthState, IAuthStateUser } from '../interfaces/AuthState.interface';
+import { IAuthState } from '../interfaces/AuthState.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subject } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
+import { IUser } from '../interfaces/User.inteface';
 
 export class AuthStateService {
   private authService = inject(AuthService);
@@ -14,37 +15,25 @@ export class AuthStateService {
     refreshToken: '',
   });
 
-  authState = computed(() => this.state());
+  authState = computed(() =>
+    this.throwIfNotAuthenticatedElseExecute<IAuthState>(() => this.state())
+  );
   isAuthenticated = computed(() => this.state().isAuthenticated);
-  user = computed(() => this.state().user);
+  user = computed(() =>
+    this.throwIfNotAuthenticatedElseExecute<IUser>(() => this.state().user!)
+  );
 
   authenticate$ = new Subject<{
-    user: IAuthStateUser;
+    user: IUser;
     token: string;
     refreshToken: string;
   }>();
   signOut$ = new Subject<void>();
 
   constructor() {
-    this.authenticate$
-      .pipe(takeUntilDestroyed())
-      .subscribe(({ user, token, refreshToken }) => {
-        this.state.set({
-          isAuthenticated: true,
-          user,
-          token,
-          refreshToken,
-        });
-      });
+    this.authenticate$.pipe(takeUntilDestroyed()).subscribe(this.authenticate);
 
-    this.signOut$.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.state.set({
-        isAuthenticated: false,
-        user: null,
-        token: '',
-        refreshToken: '',
-      });
-    });
+    this.signOut$.pipe(takeUntilDestroyed()).subscribe(this.signOut);
 
     this.checkIsAuthenticatedOnLoad();
   }
@@ -68,5 +57,39 @@ export class AuthStateService {
         refreshToken,
       });
     }
+  }
+
+  private authenticate({
+    user,
+    token,
+    refreshToken,
+  }: {
+    user: IUser;
+    token: string;
+    refreshToken: string;
+  }) {
+    this.state.set({
+      user,
+      token,
+      refreshToken,
+      isAuthenticated: true,
+    });
+  }
+
+  private signOut() {
+    this.state.set({
+      user: null,
+      token: '',
+      refreshToken: '',
+      isAuthenticated: false,
+    });
+  }
+
+  private throwIfNotAuthenticatedElseExecute<ReturnType>(fn: () => ReturnType) {
+    if (!this.state().isAuthenticated)
+      throw new Error(
+        'User is not authenticated. You can not access user data!'
+      );
+    return fn();
   }
 }

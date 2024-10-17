@@ -1,12 +1,8 @@
-export interface IAuthState {
-    isAuthenticated: boolean;
-    user: IAuthStateUser | null;
-    token: string;
-    refreshToken: string;
-}
+import { IUser } from './User.inteface';
 
-export interface IAuthStateUser {
-    id: string;
-    email: string;
-    full_name: string;
+export interface IAuthState {
+  isAuthenticated: boolean;
+  user: IUser | null;
+  token: string;
+  refreshToken: string;
 }
