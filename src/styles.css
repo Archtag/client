@@ -4,7 +4,11 @@
 @tailwind utilities;
 
 .visible-screen-flexbox {
-  @apply flexbox-with-centered-elements mt-header-height min-h-screen-without-header w-full;
+  @apply flexbox-with-centered-elements visible-screen;
+}
+
+.visible-screen {
+  @apply min-h-screen-without-header w-full;
 }
 
 .flexbox-with-centered-elements {

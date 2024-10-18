@@ -17,7 +17,7 @@ module.exports = {
   plugins: [require("daisyui")],
 
   daisyui: {
-    themes: true,
+    themes: ["dim", "emerald"],
 
     styled: true,
 
@@ -29,6 +29,6 @@ module.exports = {
 
     logs: true,
 
-    rtl: false,
+    rtl: true,
   },
 };

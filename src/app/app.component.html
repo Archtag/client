@@ -1,11 +1,13 @@
-<header class="z-50">
-  <app-header></app-header>
-</header>
+<div [attr.data-theme]="theme()" class="h-full relative">
+  <header class="z-50 h-header-height">
+    <app-header></app-header>
+  </header>
 
-<main>
-  <router-outlet />
-</main>
+  <main class="visible-screen">
+    <router-outlet />
+  </main>
 
-<footer>
-  <app-footer></app-footer>
-</footer>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div>

@@ -18,7 +18,10 @@ export class AuthStateService {
   authState = computed(() =>
     this.throwIfNotAuthenticatedElseExecute<IAuthState>(() => this.state())
   );
-  isAuthenticated = computed(() => this.state().isAuthenticated);
+  isAuthenticated = computed(() => {
+    console.log(this.state().isAuthenticated);
+    return this.state().isAuthenticated;
+  });
   user = computed(() =>
     this.throwIfNotAuthenticatedElseExecute<IUser>(() => this.state().user!)
   );
