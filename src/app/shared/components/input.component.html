@@ -6,9 +6,10 @@
     [type]="type"
     [placeholder]="placeholder"
     class="input input-bordered w-full"
-    [class.input-error]="errorMessage"
+    [class.input-error]="hasError"
+    [id]="inputId"
   />
-  <div class="label flex justify-end w-full" *[hidden]="!errorMessage">
+  <div class="label flex justify-end w-full" [hidden]="!errorMessage">
     <span class="label-text text-error -mt-1">{{ errorMessage }}</span>
   </div>
 </label>

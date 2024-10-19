@@ -1,7 +1,7 @@
 <div class="visible-screen-flexbox gap-5">
   <img
     src="/assets/images/house-architecture.png"
-    class="w-screen h-full absolute object-cover opacity-[4%] -top-8 -left-14"
+    class="w-screen h-full absolute object-cover opacity-[4%] -top-8"
   />
   <div
     class="flex flex-grow -ml-4 max-lg:ml-0 flex-row w-full max-w-5xl px-10 max-lg:px-4 justify-center items-center max-lg:flex-col gap-2 max-lg:gap-7"
@@ -43,19 +43,36 @@
         <app-input
           label="Email"
           placeholder="georgi.ivanov@work.com"
+          [control]="registerForm.controls.email"
+          [hasError]="true"
+          inputId="email"
         ></app-input>
         <div class="flex w-full gap-2">
-          <app-input label="Имe" placeholder="Георги"></app-input>
-          <app-input label="Фамилия" placeholder="Иванов"></app-input>
+          <app-input
+            label="Имe"
+            placeholder="Георги"
+            [control]="registerForm.controls.firstName"
+            inputId="firstName"
+          ></app-input>
+          <app-input
+            label="Фамилия"
+            placeholder="Иванов"
+            [control]="registerForm.controls.lastName"
+            inputId="lastName"
+          ></app-input>
         </div>
         <app-input
           label="Паролa"
+          inputId="password"
+          [control]="registerForm.controls.password"
           type="password"
           placeholder="*******"
         ></app-input>
         <app-input
           label="Потвърди парола"
+          inputId="confirmPassword"
           type="password"
+          [control]="registerForm.controls.confirmPassword"
           placeholder="*******"
         ></app-input>
         <div class="flex gap-2 items-center flex-row mt-4">
