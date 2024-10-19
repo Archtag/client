@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AuthStateService } from '../../shared/state/auth.state.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { InputHelpers } from '../../shared/helpers/input.helpers';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,18 @@ export class RegisterComponent {
       [Validators.required, Validators.minLength(2), Validators.maxLength(12)],
     ],
     password: ['', [Validators.required, Validators.minLength(6)]],
+    agreesToTerms: [false, Validators.requiredTrue],
   });
 
-  constructor(private fb: FormBuilder) {}
+  hasSubmitted = signal<boolean>(false);
+
+  inputHelpers: InputHelpers;
+
+  constructor(private fb: FormBuilder) {
+    this.inputHelpers = new InputHelpers(this.registerForm, this.hasSubmitted);
+  }
+
+  onSubmit() {
+    this.hasSubmitted.set(true);
+  }
 }
