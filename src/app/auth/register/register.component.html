@@ -1,3 +1,32 @@
 <div class="visible-screen-flexbox">
-  <app-input></app-input>
+  <form
+    class="w-full max-w-xl flex-col flex gap-3 rounded-lg border-base-300 border bg-base-100 bg-opacity-50 px-9 pb-16 pt-12 drop-shadow-md"
+  >
+    <h1 class="text-3xl text-center font-extrabold">Регистрация</h1>
+    <br />
+    <div class="flex flex-col gap-1.5 w-full">
+      <div class="flex w-full gap-2">
+        <app-input label="Имe" placeholder="Георги"></app-input>
+        <app-input label="Фамилия" placeholder="Иванов"></app-input>
+      </div>
+      <app-input label="Email" placeholder="georgi.ivanov@work.com"></app-input>
+      <app-input
+        label="Паролa"
+        type="password"
+        placeholder="*******"
+      ></app-input>
+      <app-input
+        label="Потвърди парола"
+        type="password"
+        placeholder="*******"
+      ></app-input>
+      <button class="btn btn-primary btn-square w-full mt-5">
+        Регистрирай се
+      </button>
+    </div>
+    <p class="w-full text-center">
+      Вече имате акаунт?
+      <a routerLink="/auth/signin" class="link-accent link">Впишете се!</a>
+    </p>
+  </form>
 </div>

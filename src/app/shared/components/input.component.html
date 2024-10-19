@@ -1,13 +1,14 @@
-<label class="form-control w-full max-w-xs">
+<label class="form-control w-full">
   <div class="label">
-    <span class="label-text text-[1.1rem] -mb-0.5">What is your name?</span>
+    <span class="label-text text-[1.1rem] -mb-0.5">{{ label }}</span>
   </div>
   <input
-    type="text"
-    placeholder="Type here"
-    class="input input-bordered w-full max-w-xs"
+    [type]="type"
+    [placeholder]="placeholder"
+    class="input input-bordered w-full"
+    [class.input-error]="errorMessage"
   />
-  <div class="label flex justify-end w-full">
-    <span class="label-text text-error -mt-1">Bottom Right label</span>
+  <div class="label flex justify-end w-full" *[hidden]="!errorMessage">
+    <span class="label-text text-error -mt-1">{{ errorMessage }}</span>
   </div>
 </label>

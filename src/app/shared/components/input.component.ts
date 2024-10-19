@@ -6,9 +6,12 @@ import { Component, Input } from '@angular/core';
   standalone: true,
 })
 export class InputComponent {
-  @Input('errorMessage') error: string | null = null;
+  @Input('hasError') hasError: boolean = false;
+  @Input('errorMessage') errorMessage: string | null = null;
   @Input('label') label: string = '';
   @Input('placeholder') placeholder: string = '';
+  @Input('type') type: string = 'text';
+  @Input('formControlName') formControlName: string = '';
 
   constructor() {}
 }
