@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const headerHeight = "30px";
+const headerHeight = "60px";
 
 module.exports = {
   content: ["./src/**/*.{html,ts}"],

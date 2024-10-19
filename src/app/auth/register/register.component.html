@@ -1,32 +1,77 @@
-<div class="visible-screen-flexbox">
-  <form
-    class="w-full max-w-xl flex-col flex gap-3 rounded-lg border-base-300 border bg-base-100 bg-opacity-50 px-9 pb-16 pt-12 drop-shadow-md"
+<div class="visible-screen-flexbox gap-5">
+  <div
+    class="flex flex-grow -ml-4 max-lg:ml-0 flex-row w-full max-w-5xl px-10 max-lg:px-4 justify-center items-center max-lg:flex-col gap-2 max-lg:gap-7"
   >
-    <h1 class="text-3xl text-center font-extrabold">Регистрация</h1>
-    <br />
-    <div class="flex flex-col gap-1.5 w-full">
-      <div class="flex w-full gap-2">
-        <app-input label="Имe" placeholder="Георги"></app-input>
-        <app-input label="Фамилия" placeholder="Иванов"></app-input>
-      </div>
-      <app-input label="Email" placeholder="georgi.ivanov@work.com"></app-input>
-      <app-input
-        label="Паролa"
-        type="password"
-        placeholder="*******"
-      ></app-input>
-      <app-input
-        label="Потвърди парола"
-        type="password"
-        placeholder="*******"
-      ></app-input>
-      <button class="btn btn-primary btn-square w-full mt-5">
-        Регистрирай се
-      </button>
+    <div
+      class="flex max-lg:-mb-12 bg-gradient-to-b max-lg:rounded-b-none w-fit max-lg:w-full max-lg:max-w-xl flex-shrink flex-col gap-5 items-center justify-center py-8 max-lg:pb-16 pl-5 pr-12 max-lg:pr-9 rounded-2xl -mr-8 max-lg:-mr-0 from-base-100/80 from-70% to-transparent lg:border max-lg:border-t border-primary/50"
+    >
+      <h1
+        class="text-5xl max-sm:text-3xl font-semibold font-sans leading-[1.15] text-right max-lg:text-center"
+      >
+        Стани част от
+        <u
+          style="
+            text-decoration: underline;
+            text-decoration-color: oklch(var(--p));
+          "
+          >модернизацията</u
+        >
+        на строителния бранш!
+      </h1>
+      <p class="text-md text-justify pl-4">
+        Archtag е платформа за работодатели в сектора на строителството целяща
+        да улесни работата свързана с менажирането на обектите и следенето на
+        прогреса им.
+      </p>
     </div>
-    <p class="w-full text-center">
-      Вече имате акаунт?
-      <a routerLink="/auth/signin" class="link-accent link">Впишете се!</a>
-    </p>
-  </form>
+    <form
+      class="w-full font-mono max-w-xl flex-grow flex-col flex gap-3 rounded-lg border-base-300 border bg-base-100 px-9 pb-16 pt-12 drop-shadow-md"
+    >
+      <h1 class="text-3xl text-center font-extrabold font-mono">Регистрация</h1>
+      <br />
+      <div class="flex flex-col gap-1.5 w-full">
+        <app-input
+          label="Email"
+          placeholder="georgi.ivanov@work.com"
+        ></app-input>
+        <div class="flex w-full gap-2">
+          <app-input label="Имe" placeholder="Георги"></app-input>
+          <app-input label="Фамилия" placeholder="Иванов"></app-input>
+        </div>
+        <app-input
+          label="Паролa"
+          type="password"
+          placeholder="*******"
+        ></app-input>
+        <app-input
+          label="Потвърди парола"
+          type="password"
+          placeholder="*******"
+        ></app-input>
+        <div class="flex gap-2 items-center flex-row mt-4">
+          <input type="checkbox" class="checkbox checkbox-sm checkbox-info" />
+          <p>Приемам <a href="/" class="link">общите условия</a></p>
+        </div>
+        <button class="btn btn-primary btn-square w-full mt-1.5">
+          Регистрирай се
+        </button>
+      </div>
+      <p class="w-full text-center">
+        Вече имате акаунт?
+        <a routerLink="/auth/signin" class="link-accent link">Впишете се!</a>
+      </p>
+    </form>
+  </div>
+  <div
+    class="w-full bg-base-300/80 border-t items-center border-base-100 justify-center flex flex-row gap-2 py-2 px-5"
+  >
+    <img src="/assets/images/architect-96.svg" class="h-20" />
+    <div class="flex flex-col gap-0">
+      <p class="font-semibold text-[1.2rem]">Звучи любопитно?</p>
+      <p class="text-sm">
+        Научи повече и разбери, защо имаш нужда от <strong>Archtag</strong>!
+      </p>
+      <button class="btn btn-outline btn-sm w-fit mt-3">Повече за нас</button>
+    </div>
+  </div>
 </div>
