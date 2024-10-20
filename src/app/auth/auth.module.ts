@@ -7,14 +7,17 @@ import { SharedModule } from '../shared/shared.module';
 import { InputComponent } from '../shared/components/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './signin/signin.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [RegisterComponent, SignInComponent],
+  declarations: [RegisterComponent, SignInComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
     InputComponent,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
 })
 export class AuthModule {}
