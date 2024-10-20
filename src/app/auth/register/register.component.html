@@ -119,7 +119,12 @@
             formControlName="agreesToTerms"
             class="checkbox checkbox-sm checkbox-info"
           />
-          <p>Приемам <a href="/" class="link">общите условия</a></p>
+          <p>
+            Приемам
+            <a [href]="advertisementWebsiteUrl + '/legal'" class="link"
+              >общите условия</a
+            >
+          </p>
         </div>
         <span
           [hidden]="!inputHelpers.isInputInvalid('agreesToTerms')"
@@ -151,9 +156,12 @@
       <p class="text-sm">
         Научи повече и разбери, защо имаш нужда от <strong>Archtag</strong>!
       </p>
-      <button class="btn btn-outline btn-sm w-fit mt-3 underline">
+      <a
+        [href]="advertisementWebsiteUrl"
+        class="btn btn-outline btn-sm w-fit mt-3 underline"
+      >
         Повече за нас
-      </button>
+      </a>
     </div>
   </div>
 </div>

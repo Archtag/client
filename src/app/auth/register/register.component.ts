@@ -3,6 +3,7 @@ import { AuthStateService } from '../../shared/state/auth.state.service';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { InputHelpers } from '../../shared/helpers/input.helpers';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { environment } from '../../../enviroments/enviroment.prod';
 
 @Component({
   selector: 'app-register',
@@ -29,6 +30,8 @@ export class RegisterComponent {
   hasSubmitted = signal<boolean>(false);
 
   inputHelpers: InputHelpers;
+
+  advertisementWebsiteUrl = environment.advertisementWebsiteUrl;
 
   constructor(private fb: FormBuilder) {
     this.inputHelpers = new InputHelpers(this.registerForm, this.hasSubmitted);
