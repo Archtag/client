@@ -11,11 +11,13 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from './structure/header/header.module';
 import { ThemeStateService } from './shared/state/theme.state.service';
 import { AuthStateService } from './shared/state/auth.state.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, RouteNotFoundComponent],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     HeaderModule,
     BrowserModule,
     SharedModule,

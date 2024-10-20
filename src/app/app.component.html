@@ -3,7 +3,7 @@
     <app-header></app-header>
   </header>
 
-  <main class="visible-screen">
+  <main class="visible-screen" [@routeTransition]="route.snapshot.data">
     <router-outlet />
   </main>
 
