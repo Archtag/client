@@ -13,9 +13,7 @@ export class InputHelpers {
   isInputInvalid(controlName: string): boolean {
     return (
       (this.form.get(controlName)?.invalid &&
-        (this.form.get(controlName)?.dirty ||
-          this.form.get(controlName)?.touched ||
-          this.isSubmitted())) ||
+        (this.form.get(controlName)?.touched || this.isSubmitted())) ||
       false
     );
   }
