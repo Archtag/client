@@ -11,6 +11,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CheckEmailComponent } from './check-email/check-email.component';
 import { ValidateEmailComponent } from './validate-email/validate-email.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ValidateEmailComponent } from './validate-email/validate-email.componen
     ResetPasswordComponent,
     CheckEmailComponent,
     ValidateEmailComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import { SignInComponent } from './signin/signin.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CheckEmailComponent } from './check-email/check-email.component';
 import { ValidateEmailComponent } from './validate-email/validate-email.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'validate-email/:email/:code',
     component: ValidateEmailComponent,
+  },
+  {
+    path: 'change-password/:email/:code',
+    component: ChangePasswordComponent,
   },
 ];
 
