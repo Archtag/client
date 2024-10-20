@@ -9,9 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignInComponent } from './signin/signin.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CheckEmailComponent } from './check-email/check-email.component';
 
 @NgModule({
-  declarations: [RegisterComponent, SignInComponent, ResetPasswordComponent],
+  declarations: [
+    RegisterComponent,
+    SignInComponent,
+    ResetPasswordComponent,
+    CheckEmailComponent,
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
