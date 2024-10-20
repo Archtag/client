@@ -1,0 +1,49 @@
+<div class="visible-screen-flexbox gap-5">
+  <img
+    src="/assets/images/house-architecture.png"
+    class="w-screen h-full absolute object-cover opacity-[4%] -top-8"
+  />
+  <div
+    class="flex font-mono flex-col w-full max-w-md gap-8 bg-base-100 rounded-2xl drop-shadow-xl border border-primary/35 px-10 pt-12 pb-7 relative"
+  >
+    <h1 class="font-bold text-3xl text-center">Вход в система</h1>
+    <form class="flex flex-col gap-2">
+      <app-input
+        inputId="email"
+        inputType="email"
+        label="Email"
+        placeholder="georgi.ivanov@work.com"
+      />
+      <app-input
+        inputId="password"
+        inputType="password"
+        label="Парола"
+        placeholder="********"
+      />
+
+      <div class="flex gap-2 items-center flex-row mt-3">
+        <input
+          type="checkbox"
+          formControlName="agreesToTerms"
+          class="checkbox checkbox-sm checkbox-info"
+        />
+        <p>Запомни ме</p>
+      </div>
+      <button type="submit" class="btn btn-primary w-full mt-1.5">
+        Впиши се
+      </button>
+      <div class="flex justify-between w-full text-sm mt-2 mb-2">
+        <p>Забравил си си паролата?</p>
+        <a routerLink="/auth/forgotten-password" class="link link-info"
+          >Нулиране на парола</a
+        >
+      </div>
+      <div class="w-full border-t border-base-200 relative"></div>
+      <a
+        routerLink="/auth/register"
+        class="text-info font-semibold text-center link-hover cursor-pointer mt-2"
+        >Създай акаунт</a
+      >
+    </form>
+  </div>
+</div>

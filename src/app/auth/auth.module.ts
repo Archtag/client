@@ -6,9 +6,10 @@ import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { InputComponent } from '../shared/components/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignInComponent } from './signin/signin.component';
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent, SignInComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
