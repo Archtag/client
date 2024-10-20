@@ -1,0 +1,61 @@
+<div class="visible-screen-flexbox pt-8 px-3" style="justify-content: start">
+  <div
+    [class.border-success]="isSuccessful"
+    [class.border-error]="!isSuccessful"
+    class="w-full max-sm:px-4 flex flex-col max-w-2xl gap-4 border rounded-xl drop-shadow-xl pt-14 pb-12 px-16 bg-base-100/70"
+  >
+    <div
+      *ngIf="!isSuccessful"
+      class="border border-base-content/5 bg-base-100 py-4 px-4 rounded-lg text-base-content/80 text-sm text-justify"
+    >
+      За да активирате акаунта си, трябва да потвърдите собствеността на имейла.
+      За целта трябва да следвате инструкциите в последния получен от Вас имейл
+      на тема активиране на акаунта Ви в Archtag.
+    </div>
+    <div class="flex flex-row gap-5 max-sm:gap-3 items-center">
+      <fa-icon
+        [icon]="isSuccessful ? userCheckIcon : circleExclamationIcon"
+        class="text-7xl max-sm:text-4xl"
+        [class.text-success]="isSuccessful"
+        [class.text-error]="!isSuccessful"
+      />
+      <div class="flex flex-col w-full gap-0.5 flex-grow">
+        <h1 class="font-semibold text-xl">
+          {{
+            isSuccessful
+              ? "Активирането на акаунта Ви беше успешно"
+              : "Активирането на акаунта Ви беше неуспешно"
+          }}
+        </h1>
+        <p class="text-sm text-justify">
+          {{
+            isSuccessful
+              ? "Акаунта Ви е активиран. Вече имате достъп до иновативната система за менажиране на бизнес в строителния бранш - Archtag."
+              : "Можете да заявите нов имейл за активиране на акаунта Ви натискайки бутона по-долу."
+          }}
+        </p>
+        <div
+          *ngIf="isSuccessful"
+          class="w-full flex items-center justify-center"
+        >
+          <a
+            routerLink="/companies"
+            class="btn bg-success/70 text-success-content border border-success/80 btn-sm hover:bg-success w-fit px-10 mt-2"
+          >
+            Влез в системата
+          </a>
+        </div>
+        <div
+          *ngIf="!isSuccessful"
+          class="w-full flex items-center justify-center"
+        >
+          <button
+            class="btn bg-info/70 text-info-content border border-info/80 btn-xs hover:bg-info w-fit px-10 mt-2"
+          >
+            Заяви нов имейл
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

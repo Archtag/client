@@ -10,6 +10,7 @@ import { SignInComponent } from './signin/signin.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CheckEmailComponent } from './check-email/check-email.component';
+import { ValidateEmailComponent } from './validate-email/validate-email.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CheckEmailComponent } from './check-email/check-email.component';
     SignInComponent,
     ResetPasswordComponent,
     CheckEmailComponent,
+    ValidateEmailComponent,
   ],
   imports: [
     CommonModule,

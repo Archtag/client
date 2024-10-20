@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { SignInComponent } from './signin/signin.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CheckEmailComponent } from './check-email/check-email.component';
+import { ValidateEmailComponent } from './validate-email/validate-email.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'check-email/:email',
     component: CheckEmailComponent,
+  },
+  {
+    path: 'validate-email/:email/:code',
+    component: ValidateEmailComponent,
   },
 ];
 
