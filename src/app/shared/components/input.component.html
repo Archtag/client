@@ -1,4 +1,4 @@
-<label class="form-control w-full">
+<label class="form-control">
   <div class="label">
     <span class="label-text text-[1.1rem] -mb-0.5">{{ label }}</span>
   </div>
@@ -8,8 +8,9 @@
     class="input input-bordered w-full"
     [class.input-error]="hasError"
     [id]="inputId"
+    [formControl]="control"
   />
-  <div class="label flex justify-end w-full" [hidden]="!errorMessage">
-    <span class="label-text text-error -mt-1">{{ errorMessage }}</span>
+  <div class="label flex justify-start w-full" *ngIf="hasError">
+    <span class="label-text text-error -mt-1">{{ currentErrorMessage }}</span>
   </div>
 </label>

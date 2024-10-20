@@ -32,6 +32,7 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    console.log(this.registerForm.value);
     this.hasSubmitted.set(true);
   }
 }

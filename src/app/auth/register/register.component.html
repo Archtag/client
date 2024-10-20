@@ -39,32 +39,43 @@
     >
       <h1 class="text-3xl text-center font-extrabold font-mono">Регистрация</h1>
       <br />
-      <div class="flex flex-col gap-1.5 w-full">
+      <div class="flex flex-col gap-3.5 w-full">
         <app-input
           label="Email"
           placeholder="georgi.ivanov@work.com"
           [control]="registerForm.controls.email"
-          [hasError]="true"
+          [hasError]="inputHelpers.isInputInvalid('email')"
+          [errorMessages]="{
+            default:
+              'За регистрация е необходимо да въведете валиден работен email!',
+          }"
           inputId="email"
         ></app-input>
-        <div class="flex w-full gap-2">
-          <app-input
-            label="Имe"
-            placeholder="Георги"
-            [control]="registerForm.controls.firstName"
-            inputId="firstName"
-          ></app-input>
-          <app-input
-            label="Фамилия"
-            placeholder="Иванов"
-            [control]="registerForm.controls.lastName"
-            inputId="lastName"
-          ></app-input>
+        <div class="flex items-center w-full gap-2">
+          <div class="w-full">
+            <app-input
+              label="Имe"
+              placeholder="Георги"
+              [control]="registerForm.controls.firstName"
+              [hasError]="inputHelpers.isInputInvalid('firstName')"
+              inputId="firstName"
+            ></app-input>
+          </div>
+          <div class="w-full">
+            <app-input
+              label="Фамилия"
+              placeholder="Иванов"
+              [control]="registerForm.controls.lastName"
+              [hasError]="inputHelpers.isInputInvalid('lastName')"
+              inputId="lastName"
+            ></app-input>
+          </div>
         </div>
         <app-input
           label="Паролa"
           inputId="password"
           [control]="registerForm.controls.password"
+          [hasError]="inputHelpers.isInputInvalid('password')"
           type="password"
           placeholder="*******"
         ></app-input>
@@ -72,10 +83,11 @@
           label="Потвърди парола"
           inputId="confirmPassword"
           type="password"
+          [hasError]="inputHelpers.isInputInvalid('confirmPassword')"
           [control]="registerForm.controls.confirmPassword"
           placeholder="*******"
         ></app-input>
-        <div class="flex gap-2 items-center flex-row mt-4">
+        <div class="flex gap-2 items-center flex-row mt-2.5 mb-0.5">
           <input
             type="checkbox"
             formControlName="agreesToTerms"
@@ -89,7 +101,10 @@
           >За да се регистрирате в системата трябва да се съгласите с общите
           условия.</span
         >
-        <button class="btn btn-primary btn-square w-full mt-1.5">
+        <button
+          [disabled]="registerForm.invalid && hasSubmitted()"
+          class="btn btn-primary btn-square w-full mt-1.5"
+        >
           Регистрирай се
         </button>
       </div>
