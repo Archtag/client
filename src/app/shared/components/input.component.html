@@ -11,6 +11,8 @@
     [formControl]="control"
   />
   <div class="label flex justify-start w-full" *ngIf="hasError">
-    <span class="label-text text-error -mt-1">{{ currentErrorMessage }}</span>
+    <span class="label-text text-error -mt-1 leading-4">{{
+      currentErrorMessage
+    }}</span>
   </div>
 </label>

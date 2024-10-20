@@ -58,6 +58,10 @@
               placeholder="Георги"
               [control]="registerForm.controls.firstName"
               [hasError]="inputHelpers.isInputInvalid('firstName')"
+              [errorMessages]="{
+            default:
+              'Необходимо е да въведете първото си име.',
+          }"
               inputId="firstName"
             ></app-input>
           </div>
@@ -67,6 +71,10 @@
               placeholder="Иванов"
               [control]="registerForm.controls.lastName"
               [hasError]="inputHelpers.isInputInvalid('lastName')"
+              [errorMessages]="{
+            default:
+              'Необходимо е да въведете фамилното си име.',
+          }"
               inputId="lastName"
             ></app-input>
           </div>
@@ -76,6 +84,10 @@
           inputId="password"
           [control]="registerForm.controls.password"
           [hasError]="inputHelpers.isInputInvalid('password')"
+          [errorMessages]="{
+            required: 'Необходимо е да посочите парола.',
+            minLength: 'Паролата трябва да е поне 6 знака.'
+          }"
           type="password"
           placeholder="*******"
         ></app-input>
@@ -84,10 +96,24 @@
           inputId="confirmPassword"
           type="password"
           [hasError]="inputHelpers.isInputInvalid('confirmPassword')"
+          [errorMessages]="{
+            required: 'Необходимо е да потвърдите паролата си.'
+          }"
           [control]="registerForm.controls.confirmPassword"
           placeholder="*******"
         ></app-input>
-        <div class="flex gap-2 items-center flex-row mt-2.5 mb-0.5">
+        <p
+          class="w-full -mt-2 text-error"
+          *ngIf="
+            hasSubmitted() &&
+            !passwordsDoMatch() &&
+            !registerForm.get('confirmPassword')?.invalid &&
+            !registerForm.get('password')?.invalid
+          "
+        >
+          Паролите не съвпадат!
+        </p>
+        <div class="flex gap-2 items-center flex-row mt-2.5 -mb-2">
           <input
             type="checkbox"
             formControlName="agreesToTerms"
@@ -102,7 +128,9 @@
           условия.</span
         >
         <button
-          [disabled]="registerForm.invalid && hasSubmitted()"
+          [disabled]="
+            (registerForm.invalid || !passwordsDoMatch()) && hasSubmitted()
+          "
           class="btn btn-primary btn-square w-full mt-1.5"
         >
           Регистрирай се
