@@ -3,7 +3,7 @@ import { AuthStateService } from '../../shared/state/auth.state.service';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { InputHelpers } from '../../shared/helpers/input.helpers';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { environment } from '../../../enviroments/enviroment.prod';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
